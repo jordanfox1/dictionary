@@ -1,6 +1,7 @@
 package user_input
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"testing"
@@ -29,5 +30,24 @@ func TestPromptUserForInput(t *testing.T) {
 	expectedOutput := "---------- ========== Welcome ========== ----------\n"
 	if string(capturedOutput) != expectedOutput {
 		t.Errorf("Expected output: %s, but got: %s", expectedOutput, capturedOutput)
+	}
+}
+
+func TestGetUserInput(t *testing.T) {
+	oldStdin := os.Stdin
+	r, w, _ := os.Pipe()
+	os.Stdin = r
+
+	go func() {
+		fmt.Fprint(w, "Testing\n")
+		w.Close()
+	}()
+
+	userInput := GetUserInput()
+
+	os.Stdin = oldStdin
+
+	if userInput != "Testing" {
+		t.Errorf("Expected 'Test Input', but got '%s'", userInput)
 	}
 }

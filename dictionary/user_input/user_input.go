@@ -14,3 +14,17 @@ var (
 func PromptUserForInput(prompt string) {
 	fmt.Println(prompt)
 }
+
+type InputReader interface {
+	Read(p []byte) (n int, err error)
+}
+
+func GetUserInput() string {
+	fmt.Print("Enter a word: ")
+	var input string
+	_, err := fmt.Scan(&input)
+	if err != nil {
+		fmt.Println("Error reading input:", err)
+	}
+	return input
+}
