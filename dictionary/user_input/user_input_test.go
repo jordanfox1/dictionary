@@ -19,7 +19,7 @@ func TestPromptUserForInput(t *testing.T) {
 	}()
 
 	// Call the function you want to test.
-	PromptUserForInput(WelcomePrompt)
+	PromptUser(WelcomePrompt)
 
 	// Close the write pipe to read the captured output.
 	w.Close()

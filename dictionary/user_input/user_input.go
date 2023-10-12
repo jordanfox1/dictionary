@@ -16,7 +16,7 @@ var (
 	ErrNoNumeric  = errors.New("please enter only letters")
 )
 
-func PromptUserForInput(prompt string) {
+func PromptUser(prompt string) {
 	fmt.Println(prompt)
 }
 
@@ -46,5 +46,6 @@ func ValidateUserInput(input string) (string, error) {
 		}
 	}
 
+	fmt.Printf("attempting to get a definition for %s\n", input)
 	return input, nil
 }
