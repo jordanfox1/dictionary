@@ -3,6 +3,7 @@ package storage
 import (
 	"dictionary/dictionary/models"
 	"encoding/json"
+	"errors"
 	"log"
 	"os"
 	"path/filepath"
@@ -31,7 +32,6 @@ func (fs *FileStorage) Save(def models.CustomDefinition) error {
 		return err
 	}
 
-	// Construct the absolute path for saving the file in the current directory
 	filename := filepath.Join(currentDir+"/saved_data/", def.Word+".json")
 
 	// Create or open the file for writing
@@ -53,8 +53,30 @@ func (fs *FileStorage) Save(def models.CustomDefinition) error {
 }
 
 func (fs *FileStorage) Get(word string) (models.CustomDefinition, error) {
-	// Implement the file retrieval logic
-	return models.CustomDefinition{}, nil
+	currentDir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+		return models.CustomDefinition{}, err
+	}
+	filename := filepath.Join(currentDir+"/saved_data/", word+".json")
+
+	defData, err := os.ReadFile(filename)
+	if err != nil {
+		return models.CustomDefinition{}, err
+	}
+
+	if len(defData) < 1 {
+		return models.CustomDefinition{}, errors.New("no definition found")
+	}
+
+	var def models.CustomDefinition
+
+	err = json.Unmarshal(defData, &def)
+	if err != nil {
+		return models.CustomDefinition{}, err
+	}
+
+	return def, nil
 }
 
 func (fs *FileStorage) Delete(filename string) error {

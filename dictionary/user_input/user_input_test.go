@@ -43,7 +43,7 @@ func TestGetUserInput(t *testing.T) {
 		w.Close()
 	}()
 
-	userInput := GetUserInput()
+	userInput := GetUserInput("")
 
 	os.Stdin = oldStdin
 
@@ -114,6 +114,77 @@ func TestValidateUserInput(t *testing.T) {
 				t.Errorf("ValidateUserInput() error = %v, wantErr %v, expected output to be %v", err, tt.wantErr, tt.args.expected)
 			}
 
+		})
+	}
+}
+
+func TestValidateUserOpInput(t *testing.T) {
+	type args struct {
+		input string
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    string
+		wantErr bool
+	}{
+		{
+			name: "test case 1",
+			args: args{
+				input: "",
+			},
+			wantErr: true,
+		},
+		{
+			name: "test case 2",
+			args: args{
+				input: "W",
+			},
+			wantErr: true,
+		},
+		{
+			name: "test case 3",
+			args: args{
+				input: "l",
+			},
+			wantErr: false,
+			want:    "l",
+		},
+		{
+			name: "test case 4",
+			args: args{
+				input: "g",
+			},
+			wantErr: false,
+			want:    "g",
+		},
+		{
+			name: "test case 5",
+			args: args{
+				input: "L",
+			},
+			wantErr: false,
+			want:    "l",
+		},
+		{
+			name: "test case 6",
+			args: args{
+				input: "G",
+			},
+			wantErr: false,
+			want:    "g",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := ValidateUserOpInput(tt.args.input)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("ValidateUserOpInput() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if got != tt.want {
+				t.Errorf("ValidateUserOpInput() = %v, want %v", got, tt.want)
+			}
 		})
 	}
 }

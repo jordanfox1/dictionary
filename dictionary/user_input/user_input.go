@@ -30,8 +30,8 @@ type InputReader interface {
 	Read(p []byte) (n int, err error)
 }
 
-func GetUserInput() string {
-	fmt.Print("Enter a word: ")
+func GetUserInput(prompt string) string {
+	fmt.Print(prompt)
 	var input string
 	_, err := fmt.Scan(&input)
 	if err != nil {
@@ -54,4 +54,19 @@ func ValidateUserInput(input string) (string, error) {
 
 	fmt.Printf("attempting to get a definition for %s\n", input)
 	return input, nil
+}
+
+func ValidateUserOpInput(input string) (string, error) {
+	switch input {
+	case "l":
+		return input, nil
+	case "g":
+		return input, nil
+	case "L":
+		return "l", nil
+	case "G":
+		return "g", nil
+	default:
+		return "", fmt.Errorf("(l for lookup new word, g for get a saved word), you entered %s", input)
+	}
 }
