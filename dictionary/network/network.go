@@ -39,7 +39,5 @@ func (c *RealNetworkClient) GetDefinition(word, url string) (string, error) {
 	// For simplicity, let's assume the response body is the definition.
 	definition := string(body)
 
-	fmt.Print(definition)
-
 	return definition, nil
 }

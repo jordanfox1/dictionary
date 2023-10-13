@@ -3,6 +3,7 @@ package main
 import (
 	"dictionary/dictionary/network"
 	"dictionary/dictionary/network_interaction"
+	"dictionary/dictionary/tools"
 	"dictionary/dictionary/user_input"
 	"log"
 )
@@ -20,9 +21,12 @@ func main() {
 
 	// Create an instance of the NetworkInteraction with the real client.
 	ni := network_interaction.NetworkInteraction{Client: client}
-	definition, err := ni.GetDefinition(validInput, "https://api.dictionaryapi.dev/api/v2/entries/en/")
+	rawDefinition, err := ni.GetDefinition(validInput, "https://api.dictionaryapi.dev/api/v2/entries/en/")
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Println(definition)
+
+	def := tools.FormatDefinition(rawDefinition)
+	log.Println(def)
+
 }

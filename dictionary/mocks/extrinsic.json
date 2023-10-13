@@ -1,0 +1,53 @@
+[
+    {
+        "word": "extrinsic",
+        "phonetic": "/ɛks.ˈtɹɪn.zɪk/",
+        "phonetics": [
+            {
+                "text": "/ɛks.ˈtɹɪn.zɪk/",
+                "audio": ""
+            }
+        ],
+        "meanings": [
+            {
+                "partOfSpeech": "noun",
+                "definitions": [
+                    {
+                        "definition": "An external factor",
+                        "synonyms": [],
+                        "antonyms": []
+                    }
+                ],
+                "synonyms": [],
+                "antonyms": []
+            },
+            {
+                "partOfSpeech": "adjective",
+                "definitions": [
+                    {
+                        "definition": "External; separable from the thing itself; inessential",
+                        "synonyms": [],
+                        "antonyms": []
+                    },
+                    {
+                        "definition": "Not belonging to something; outside",
+                        "synonyms": [],
+                        "antonyms": []
+                    }
+                ],
+                "synonyms": [],
+                "antonyms": [
+                    "inherent",
+                    "intrinsic"
+                ]
+            }
+        ],
+        "license": {
+            "name": "CC BY-SA 3.0",
+            "url": "https://creativecommons.org/licenses/by-sa/3.0"
+        },
+        "sourceUrls": [
+            "https://en.wiktionary.org/wiki/extrinsic"
+        ]
+    }
+]
