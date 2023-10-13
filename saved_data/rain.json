@@ -1,0 +1,55 @@
+{
+    "word": "rain",
+    "phonetic": "/ɹeɪn/",
+    "meanings": [
+        {
+            "partOfSpeech": "noun",
+            "Definitions": [
+                {
+                    "definition": "Condensed water falling from a cloud.",
+                    "synonyms": [],
+                    "antonyms": []
+                },
+                {
+                    "definition": "Any matter moving or falling, usually through air, and especially if liquid or otherwise figuratively identifiable with raindrops.",
+                    "synonyms": [],
+                    "antonyms": []
+                },
+                {
+                    "definition": "An instance of particles or larger pieces of matter moving or falling through air.",
+                    "synonyms": [],
+                    "antonyms": []
+                }
+            ],
+            "synonyms": [],
+            "antonyms": []
+        },
+        {
+            "partOfSpeech": "verb",
+            "Definitions": [
+                {
+                    "definition": "To have rain fall from the sky.",
+                    "synonyms": [],
+                    "antonyms": []
+                },
+                {
+                    "definition": "To fall as or like rain.",
+                    "synonyms": [],
+                    "antonyms": []
+                },
+                {
+                    "definition": "To issue (something) in large quantities.",
+                    "synonyms": [],
+                    "antonyms": []
+                },
+                {
+                    "definition": "To reign.",
+                    "synonyms": [],
+                    "antonyms": []
+                }
+            ],
+            "synonyms": [],
+            "antonyms": []
+        }
+    ]
+}
