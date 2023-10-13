@@ -3,6 +3,8 @@ package main
 import (
 	"dictionary/dictionary/network"
 	"dictionary/dictionary/network_interaction"
+	"dictionary/dictionary/storage"
+	"dictionary/dictionary/storage_interaction"
 	"dictionary/dictionary/tools"
 	"dictionary/dictionary/user_input"
 	"log"
@@ -27,7 +29,7 @@ func main() {
 	}
 
 	def := tools.FormatDefinition(rawDefinition)
-	log.Println("top definition - ")
-	log.Println(def.Meanings[0].Definitions[0].Definition)
 
+	fileStorage := storage.NewFileStorage()
+	storage_interaction.SaveDefInDB(fileStorage, def)
 }
