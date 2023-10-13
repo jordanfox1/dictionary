@@ -29,3 +29,39 @@ func TestSaveDefInDB(t *testing.T) {
 		t.Errorf("SaveDefInDB returned an error: %v", err)
 	}
 }
+
+func TestGetSavedDef(t *testing.T) {
+	mockStorage := &MockStorage{
+		SavedDefinition: models.CustomDefinition{
+			Word: "apple",
+		},
+	}
+
+	savedDef, err := GetSavedDef(mockStorage, "apple")
+
+	if mockStorage.SavedDefinition.Word != savedDef.Word {
+		t.Errorf("GetSavedDef did not retrieve the definition correctly")
+	}
+
+	if err != nil {
+		t.Errorf("GetSavedDef returned an error: %v", err)
+	}
+}
+
+func TestGetSavedDefError(t *testing.T) {
+	mockStorage := &MockStorage{
+		SavedDefinition: models.CustomDefinition{
+			Word: "",
+		},
+	}
+
+	savedDef, err := GetSavedDef(mockStorage, "apple")
+
+	if err == nil {
+		t.Errorf("GetSavedDef should have returned an error but error was nil: %v", err)
+	}
+
+	if mockStorage.SavedDefinition.Word != savedDef.Word {
+		t.Errorf("these values should not be equal val1: %v, val2: %v", mockStorage.SavedDefinition.Word, savedDef.Word)
+	}
+}

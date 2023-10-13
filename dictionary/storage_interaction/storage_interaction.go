@@ -12,3 +12,7 @@ type Storage interface {
 func SaveDefInDB(storage Storage, def models.CustomDefinition) error {
 	return storage.Save(def)
 }
+
+func GetSavedDef(storage Storage, word string) (models.CustomDefinition, error) {
+	return storage.Get(word)
+}

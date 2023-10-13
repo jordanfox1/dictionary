@@ -1,6 +1,9 @@
 package storage_interaction
 
-import "dictionary/dictionary/models"
+import (
+	"dictionary/dictionary/models"
+	"errors"
+)
 
 type MockStorage struct {
 	SavedDefinition models.CustomDefinition
@@ -15,7 +18,10 @@ func (ms *MockStorage) Save(def models.CustomDefinition) error {
 
 func (ms *MockStorage) Get(word string) (models.CustomDefinition, error) {
 	// Implement the Get method behavior
-	return models.CustomDefinition{}, nil
+	if ms.SavedDefinition.Word != word {
+		return ms.SavedDefinition, errors.New("no definition for word was found")
+	}
+	return ms.SavedDefinition, nil
 }
 
 func (ms *MockStorage) Delete(word string) error {
