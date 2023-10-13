@@ -25,7 +25,6 @@ func (fs *FileStorage) Save(def models.CustomDefinition) error {
 		return err
 	}
 
-	// Get the current working directory
 	currentDir, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
@@ -33,7 +32,7 @@ func (fs *FileStorage) Save(def models.CustomDefinition) error {
 	}
 
 	// Construct the absolute path for saving the file in the current directory
-	filename := filepath.Join(currentDir, def.Word+".json")
+	filename := filepath.Join(currentDir+"/saved_data/", def.Word+".json")
 
 	// Create or open the file for writing
 	file, err := os.Create(filename)
