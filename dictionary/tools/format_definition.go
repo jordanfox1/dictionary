@@ -1,37 +1,14 @@
 package tools
 
 import (
+	"dictionary/dictionary/models"
 	"encoding/json"
 	"fmt"
 	"log"
 )
 
-type Definition struct {
-	Definition string   `json:"definition"`
-	Synonyms   []string `json:"synonyms"`
-	Antonyms   []string `json:"antonyms"`
-}
-
-type Meaning struct {
-	PartOfSpeech string `json:"partOfSpeech"`
-	Definitions  []Definition
-	Synonyms     []string `json:"synonyms"`
-	Antonyms     []string `json:"antonyms"`
-}
-
-type Phonetic struct {
-	Text  string `json:"text"`
-	Audio string `json:"audio"`
-}
-
-type CustomDefinition struct {
-	Word     string    `json:"word"`
-	Phonetic string    `json:"phonetic"`
-	Meanings []Meaning `json:"meanings"`
-}
-
-func FormatDefinition(jsonData string) CustomDefinition {
-	var customDef []CustomDefinition
+func FormatDefinition(jsonData string) models.CustomDefinition {
+	var customDef []models.CustomDefinition
 
 	if err := json.Unmarshal([]byte(jsonData), &customDef); err != nil {
 		log.Fatalf("JSON parsing error: %v", err)
@@ -53,5 +30,6 @@ func FormatDefinition(jsonData string) CustomDefinition {
 			}
 		}
 	}
+
 	return customDef[0]
 }

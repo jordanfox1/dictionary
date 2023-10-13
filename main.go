@@ -27,6 +27,7 @@ func main() {
 	}
 
 	def := tools.FormatDefinition(rawDefinition)
-	log.Println(def)
+	log.Println("top definition - ")
+	log.Println(def.Meanings[0].Definitions[0].Definition)
 
 }
