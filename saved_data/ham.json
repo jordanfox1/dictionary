@@ -1,1 +1,42 @@
-{"word":"ham","phonetic":"/ˈhæːm/","meanings":[{"partOfSpeech":"noun","Definitions":[{"definition":"The region back of the knee joint; the popliteal space; the hock.","synonyms":[],"antonyms":[]},{"definition":"A thigh and buttock of an animal slaughtered for meat.","synonyms":[],"antonyms":[]},{"definition":"Meat from the thigh of a hog cured for food.","synonyms":[],"antonyms":[]},{"definition":"The back of the thigh.","synonyms":[],"antonyms":[]},{"definition":"Electronic mail that is wanted; mail that is not spam or junk mail.","synonyms":[],"antonyms":["spam"]}],"synonyms":[],"antonyms":["spam"]}]}
+{
+    "word": "ham",
+    "phonetic": "/ˈhæːm/",
+    "meanings": [
+        {
+            "partOfSpeech": "noun",
+            "Definitions": [
+                {
+                    "definition": "The region back of the knee joint; the popliteal space; the hock.",
+                    "synonyms": [],
+                    "antonyms": []
+                },
+                {
+                    "definition": "A thigh and buttock of an animal slaughtered for meat.",
+                    "synonyms": [],
+                    "antonyms": []
+                },
+                {
+                    "definition": "Meat from the thigh of a hog cured for food.",
+                    "synonyms": [],
+                    "antonyms": []
+                },
+                {
+                    "definition": "The back of the thigh.",
+                    "synonyms": [],
+                    "antonyms": []
+                },
+                {
+                    "definition": "Electronic mail that is wanted; mail that is not spam or junk mail.",
+                    "synonyms": [],
+                    "antonyms": [
+                        "spam"
+                    ]
+                }
+            ],
+            "synonyms": [],
+            "antonyms": [
+                "spam"
+            ]
+        }
+    ]
+}

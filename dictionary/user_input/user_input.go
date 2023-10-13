@@ -8,9 +8,15 @@ import (
 )
 
 var (
-	Equals10      = strings.Repeat("=", 10)
-	Dash10        = strings.Repeat("-", 10)
-	WelcomePrompt = fmt.Sprintf("%s %s Welcome %s %s", Dash10, Equals10, Equals10, Dash10)
+	Equals10             = strings.Repeat("=", 10)
+	Dash10               = strings.Repeat("-", 10)
+	WelcomePrompt        = fmt.Sprintf("%s %s Welcome %s %s", Dash10, Equals10, Equals10, Dash10)
+	EnterOperationPrompt = "What would you like to do (l for lookup new word, g for get a saved word)"
+
+	SavePrompt   = "Would you like to save this definition? (y for yes, n no)"
+	SavingPrompt = fmt.Sprintf("%s %s Saving definition %s %s", Dash10, Equals10, Equals10, Dash10)
+	SavedPrompt  = "Definition has been saved!"
+
 	ErrValidation = errors.New("error validating input")
 	ErrNoInput    = errors.New("no input detected")
 	ErrNoNumeric  = errors.New("please enter only letters")

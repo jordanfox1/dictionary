@@ -60,5 +60,4 @@ func (fs *FileStorage) Get(word string) (models.CustomDefinition, error) {
 func (fs *FileStorage) Delete(filename string) error {
 	// Implement the file deletion logic
 	return nil
-
 }

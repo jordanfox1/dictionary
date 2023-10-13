@@ -1,6 +1,7 @@
 package main
 
 import (
+	"dictionary/dictionary/models"
 	"dictionary/dictionary/network"
 	"dictionary/dictionary/network_interaction"
 	"dictionary/dictionary/storage"
@@ -9,6 +10,8 @@ import (
 	"dictionary/dictionary/user_input"
 	"log"
 )
+
+var fileStorage = storage.NewFileStorage()
 
 func main() {
 	user_input.PromptUser(user_input.WelcomePrompt)
@@ -29,7 +32,14 @@ func main() {
 	}
 
 	def := tools.FormatDefinition(rawDefinition)
+	saveDef(def)
+}
 
-	fileStorage := storage.NewFileStorage()
+func saveDef(def models.CustomDefinition) {
+	user_input.PromptUser("")
 	storage_interaction.SaveDefInDB(fileStorage, def)
+}
+
+func getSavedDef(word string) {
+
 }
